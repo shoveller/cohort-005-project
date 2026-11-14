@@ -7,6 +7,7 @@ import { CourseStatus } from "~/db/schema";
 import { BookOpen, GraduationCap, Users, ArrowRight, User, Moon, Sun } from "lucide-react";
 import { CourseImage } from "~/components/course-image";
 import { DevUI } from "~/components/dev-ui";
+import { InboxPrototype } from "~/components/inbox.prototype";
 import { getCurrentUserId, getDevCountry } from "~/lib/session";
 import { getCountryTierInfo, COUNTRIES } from "~/lib/ppp";
 import { eq, like, and, or, sql } from "drizzle-orm";
@@ -163,6 +164,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
             Cadence
           </Link>
           <nav className="flex items-center gap-6">
+            {import.meta.env.DEV && <InboxPrototype />}
             <Link
               to="/courses"
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
